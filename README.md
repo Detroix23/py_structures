@@ -6,3 +6,4 @@ Classes:
 - Queue;
 - Doubly-chained lists;
 - Tree;
+- Graphs;

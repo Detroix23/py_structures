@@ -1,7 +1,7 @@
 [project]
-name = "new_detroix23"
+name = "structures_detroix23"
 version = "0.0.1"
-description = "New project."
+description = "Python special structures"
 authors = [
     { name="Detroix23", email="detroix23@gmail.com" }
 ]
@@ -20,11 +20,8 @@ license-files = [
 ]
 
 [project.urls]
-Repository = "https://github.com/Detroix23"
+Repository = "https://github.com/Detroix23/py_structures"
 
 [build-system]
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
-
-[tool.setuptools]
-py-modules = []
