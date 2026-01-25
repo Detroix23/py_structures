@@ -10,6 +10,7 @@ from structures_detroix23.modules import (
 	base,
 	cell,
 	dynamic_list,
+	nodes,
 )
 
 def test_chain1() -> None:
@@ -55,6 +56,42 @@ def test_list1() -> None:
 	print("(?) main.test_chain1() Passed.\n")
 	return
 
+def test_graph1() -> None:
+	"""
+	Test nodes and graphs.
+	"""
+	n1 = nodes.Node("A")
+	n2 = nodes.Node("B")
+	n3 = nodes.Node("C")
+	n4 = nodes.Node("D")
+
+	print(n1)
+	print(n2)
+	print(n3)
+	print(n4)
+
+	n1.batch_next((
+		(n1, 1),
+		(n2, 2),
+		(n3, 2),
+		(n4, 5)
+	))
+
+	n1.batch_previous((
+		(n3, 4),
+		(n4, 1)
+	))
+
+	n4.batch_next((
+		(n2, 2),
+		(n3, 1),
+	))
+
+	print(n1.display('  '))
+
+
+
+
 def help() -> str:
 	return """## Help.
 
@@ -64,8 +101,10 @@ Get some help.
 def test() -> None:
 	print("## Tests.")
 
-	test_chain1()
-	test_list1()
+	# test_chain1()
+	# test_list1()
+
+	test_graph1()
 
 	return	
 

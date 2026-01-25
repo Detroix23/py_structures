@@ -3,7 +3,7 @@
 /src/structures_detroix23/modules/dynamic_list.py
 """
 
-from typing import Optional, TypeVar
+from typing import Optional, TypeVar, Generic
 
 from structures_detroix23.modules import (
 	cell,
@@ -11,7 +11,7 @@ from structures_detroix23.modules import (
 
 _T_LIST = TypeVar("_T_LIST")
 
-class DynamicList[_T_LIST]:
+class DynamicList(Generic[_T_LIST]):
 	"""
 	# `DynamicList`.
 	"""
