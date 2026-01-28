@@ -95,7 +95,9 @@ def test_graph1() -> None:
 def help() -> str:
 	return """## Help.
 
-Get some help.
+### Arguments.
+`--test` | `-t`: Launch testing;
+
 """
 
 def test() -> None:
@@ -112,15 +114,16 @@ def main() -> None:
 	print("# Data structures.")
 
 	arguments: list[str] = sys.argv
-	selected: int = 0
+
+	if len(arguments) == 1:
+		print("\nUser selected no arguments.\n")
+		
+		print(help())
+		return
 
 	for argument in arguments:
 		if argument in {"--test", "-t"}:
-			selected += 1
 			test()
-	
-	if selected == 0:
-		help()
 
 	return
 
