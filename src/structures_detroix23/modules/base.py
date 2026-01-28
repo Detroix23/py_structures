@@ -5,7 +5,6 @@ Base.
 """
 
 from typing import Any
-from structures_detroix23.modules import nodes
 
 def verbose_assert_eq(a: Any, b: Any) -> bool:
 	"""
@@ -17,29 +16,3 @@ def verbose_assert_eq(a: Any, b: Any) -> bool:
 		raise AssertionError(f"(X) verbose_assert_eq(a={a}, b={b}) `a` != `b`.")
 	else:
 		return True
-	
-def pretty(
-	iterable: dict[Any, Any], 
-	tab: str = "\t",
-	level: int = 0,
-) -> str:
-	"""
-	Return a pretty formatted line broken string of a `dict`.
-	"""
-	
-	lines: list[str] = [tab * level + "{"]
-
-	for key, value in iterable.items():
-		result: str
-
-		if isinstance(value, dict):
-			result = pretty(value, tab, level + 1)  # pyright: ignore[reportUnknownArgumentType]
-		elif isinstance(value, nodes.Node):
-			result = value.display(tab)
-		else:
-			result = value
-		lines.append(f"{tab * (level + 1)}{key}: {result}")
-		
-	lines.append(tab * level + "}")
-
-	return "\n".join(lines)

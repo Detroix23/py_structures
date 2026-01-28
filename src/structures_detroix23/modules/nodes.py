@@ -6,9 +6,6 @@
 from typing import Optional, Self, Iterable
 
 from structures_detroix23.modules.types import Weight 
-from structures_detroix23.modules import (
-	base,
-)
 
 class Node:
 	"""
@@ -62,7 +59,7 @@ class Node:
 		return f"Node(name={self._name}, id={self._id}, previous={self._previous}, next={self._next})"
 
 	def __str__(self) -> str:
-		return f"{self._name}({self.get_id()})"
+		return f"{self._name}"
 
 	def get_id(self) -> int:
 		"""
@@ -131,14 +128,46 @@ class Node:
 		"""
 		self._next.pop(node, None)
 
-	def display(self, tab: str, level: int = 0) -> str:
+	def display(
+		self, 
+		tab: str, 
+		level: int = 0,
+		seen: Optional[set['Node']] = None,
+	) -> str:
 		"""
 		Multiple line readable representation of the `Node`.
 		"""
-		lines: list[str] = [f"{self.get_name()}({self.get_id()})\n"]
+		seen_current: set[Node] = seen if seen is not None else set[Node]()
 
-		lines.append(f"- previous: {base.pretty(self.get_previous(), tab, level)}")
-		lines.append(f"- next: {base.pretty(self.get_next(), tab, level)}")
-
-		return "\n".join(lines)
+		return "\n".join([
+			"{",
+			f"{tab * (level + 1)}previous: {pretty(self.get_previous(), seen_current, tab, level + 1)},",
+			f"{tab * (level + 1)}next: {pretty(self.get_next(), seen_current, tab, level + 1)},",
+			f"{tab * level}" + "}"
+		])
 	
+def pretty(
+	iterable: dict['Node', Weight],
+	seen: set['Node'],
+	tab: str = "\t",
+	level: int = 0,
+) -> str:
+	"""
+	Return a pretty formatted line broken string of a `dict`.
+	"""
+	
+	lines: list[str] = ["{"]
+
+	if len(iterable) == 0:
+		return "{}"
+
+	for node, weight in iterable.items():
+		if node in seen:
+			lines.append(f"{tab * (level + 1)}{node}: {weight}")
+		else:
+			seen.add(node)
+			lines.append(f"{tab * (level + 1)}{node}: {weight}, {node.display(tab, level + 1, seen)}")
+
+	lines.append(tab * level + "}")
+
+	return "\n".join(lines)

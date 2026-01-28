@@ -87,7 +87,7 @@ def test_graph1() -> None:
 		(n3, 1),
 	))
 
-	print(n1.display('  '))
+	print(n1, n1.display('  '))
 
 
 
