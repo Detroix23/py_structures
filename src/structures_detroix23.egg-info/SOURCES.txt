@@ -9,4 +9,9 @@ src/structures_detroix23.egg-info/dependency_links.txt
 src/structures_detroix23.egg-info/top_level.txt
 src/structures_detroix23/modules/__init__.py
 src/structures_detroix23/modules/base.py
-src/structures_detroix23/modules/chain.py
+src/structures_detroix23/modules/cell.py
+src/structures_detroix23/modules/dynamic_list.py
+src/structures_detroix23/modules/graphs.py
+src/structures_detroix23/modules/nodes.py
+src/structures_detroix23/modules/result.py
+src/structures_detroix23/modules/types.py
