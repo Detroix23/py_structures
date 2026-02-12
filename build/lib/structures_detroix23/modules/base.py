@@ -4,9 +4,7 @@
 Base.
 """
 
-from typing import Any
-
-def verbose_assert_eq(a: Any, b: Any) -> bool:
+def verbose_assert_eq(a: object, b: object) -> bool:
 	"""
 	Compare 2 values.
 	- raise `AssertionError` if not equal, and prints the values.

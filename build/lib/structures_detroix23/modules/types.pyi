@@ -1,0 +1,1 @@
+Weight = int | float
