@@ -3,6 +3,7 @@
 /.venv
 
 # Python
+dist
 **.pyc
 */__pycache__
 

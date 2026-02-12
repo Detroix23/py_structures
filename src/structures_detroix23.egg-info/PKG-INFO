@@ -1,7 +1,7 @@
 Metadata-Version: 2.4
 Name: structures_detroix23
-Version: 0.0.1
-Summary: Python special structures
+Version: 0.0.3
+Summary: Python structures.
 Author-email: Detroix23 <detroix23@gmail.com>
 License-Expression: CC-BY-4.0
 Project-URL: Repository, https://github.com/Detroix23/py_structures

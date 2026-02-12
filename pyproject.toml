@@ -1,7 +1,7 @@
 [project]
 name = "structures_detroix23"
-version = "0.0.1"
-description = "Python special structures"
+version = "0.0.3"
+description = "Python structures."
 authors = [
     { name="Detroix23", email="detroix23@gmail.com" }
 ]
