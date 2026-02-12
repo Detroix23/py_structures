@@ -17,7 +17,7 @@ class Graph:
 
 	def __init__(
 		self, 
-		register: Optional[list[nodes.Node]] = None
+		register: Optional[list[nodes.Node]]
 	) -> None:
 		self.register = register if register is not None else []
 
